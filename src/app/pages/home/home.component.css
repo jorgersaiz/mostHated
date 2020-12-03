@@ -1,0 +1,89 @@
+.search{
+
+    background-color: #111318;
+    margin-right: -8px;
+    margin-left: -8px;
+
+    padding-top: 10vw;
+    padding-bottom: 5vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.summoners{
+
+    background-color: #111318;
+    margin-right: -8px;
+    margin-left: -8px;
+
+    padding: 3vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* width: 15vw; */
+
+
+}
+
+input{
+
+    width: 25vw;
+    height: 4vw;
+    outline: none;
+    font-size: 1.5vw;
+    font-weight: bold;
+    background-color: #272931;
+    border: none;
+    color: rgb(184, 174, 174);
+    transition: 0.5s;
+    border-radius: 0px;
+    
+    
+}
+
+select{
+
+    width: 15vw;
+    height: 4vw;
+    outline: none;
+    font-size: 1.5vw;
+    font-weight: bold;
+    background-color: #272931;
+    border: none;
+    color: rgb(184, 174, 174);
+    transition: 0.5s; 
+    border-radius: 0px;
+
+    
+}
+
+a{
+
+    padding: 1.1vw;
+    background-color: #272931;
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: rgb(184, 174, 174);
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 0px;
+
+
+}
+
+
+input:hover, input[type=search]:focus, select:hover{
+
+    color: white;
+    background-color: #44464c;
+}
+
+a:hover{
+
+    color: white;
+}
+
+#user{
+
+    width: 3vw;
+    height: 3vw;
+    border-radius: 3vw;
+    background-color: #272931;
+}

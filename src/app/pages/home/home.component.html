@@ -1,0 +1,34 @@
+<div class="row search">
+
+    <input type="search" id="" placeholder="Type the summoner's name" #name>
+    <select name="" id="">
+        <option value="">Europe West</option>
+        <option value="">Europe Nordic & East</option>
+        <option value="">LAN</option>
+        <option value="">Korea</option>
+        <option value="">Oceania</option>
+        <option value="">Russia</option>
+        <option value="">Japan</option>
+        <option value="">Brazil</option>
+        <option value="">Turkey</option>
+        <option value="">North America</option>
+        <option value="">LAS</option>
+    </select>
+
+    <a  (click)="getUsers(name.value)">Go</a>
+
+</div>
+
+
+
+<div class="row summoners" *ngIf="user!= null">
+
+    <img id="user" src="http://ddragon.leagueoflegends.com/cdn/6.3.1/img/profileicon/1.png" alt="">
+    <a >{{user.name}}</a>
+    <a >{{user.summonerLevel}}</a>
+    <a href="{{link}}">Summoner's GG.OP</a>
+    <a style="background-color: #DD163B;" (click)="postUser()">Report</a>
+</div>
+
+
+

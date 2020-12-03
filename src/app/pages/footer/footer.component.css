@@ -1,0 +1,19 @@
+.foot{
+
+    background-color: #272931;
+    margin: -8px;
+    border-top: inset;
+    border-width: 0.5px;
+    border-color: rgb(223, 185, 89);
+    
+
+}
+
+a{
+    color: rgb(184, 174, 174);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* font-weight: bold; */
+    cursor: pointer;
+    font-size: 1vw;
+    padding: 1vw;
+}
