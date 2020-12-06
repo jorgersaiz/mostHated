@@ -5,6 +5,7 @@
     border-top: inset;
     border-width: 0.5px;
     border-color: rgb(223, 185, 89);
+    /* margin-top: 2vw; */
     
 
 }
@@ -17,3 +18,4 @@ a{
     font-size: 1vw;
     padding: 1vw;
 }
+

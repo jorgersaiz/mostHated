@@ -1,8 +1,17 @@
+body{
+
+    background-color: #111318;
+    margin: -8px;
+    margin-bottom: none;
+    margin-top: none;
+
+}
+
 .search{
 
     background-color: #111318;
-    margin-right: -8px;
-    margin-left: -8px;
+    /* margin-right: -8px;
+    margin-left: -8px; */
 
     padding-top: 10vw;
     padding-bottom: 5vw;
@@ -12,15 +21,23 @@
 .summoners{
 
     background-color: #111318;
-    margin-right: -8px;
-    margin-left: -8px;
-
     padding: 3vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /* width: 15vw; */
 
 
 }
+
+#go{
+    cursor: pointer;
+}
+
+#go:hover{
+    color: white;
+    background-color: #44464c;
+
+}
+
+
 
 input{
 
@@ -61,7 +78,6 @@ a{
     font-size: 1.5vw;
     font-weight: bold;
     color: rgb(184, 174, 174);
-    cursor: pointer;
     transition: 0.5s;
     border-radius: 0px;
 
@@ -75,10 +91,7 @@ input:hover, input[type=search]:focus, select:hover{
     background-color: #44464c;
 }
 
-a:hover{
 
-    color: white;
-}
 
 #user{
 
@@ -87,3 +100,20 @@ a:hover{
     border-radius: 3vw;
     background-color: #272931;
 }
+
+.row p{
+
+    background-color: #272931;
+    font-size: 1.2vw;
+    font-weight: bold;
+    padding: 1.2vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(227, 229, 241);
+    border: inset;
+    border-width: 0.5px;
+    border-color: rgb(223, 185, 89);
+    min-width: 25vw;
+    margin: -1px;
+
+}
+

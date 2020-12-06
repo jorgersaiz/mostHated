@@ -9,7 +9,7 @@ import { Summoner } from '../models/summoner';
 export class RiotUserService {
 
   private url = "/lol/summoner/v4/summoners/by-name/"
-  private authToken = "?api_key=RGAPI-2a24ef18-f40d-47a4-85f4-d822ed57c2fc"
+  private authToken = "?api_key=RGAPI-4d95d86f-6989-40d1-8cbe-ecb8310482ab"
   private url2 = "http://localhost:3000/summoners"
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,11 @@ export class RiotUserService {
     
     return this.http.get(this.url + name + this.authToken)
 
+  }
+
+  getUsers(){
+
+    return this.http.get(this.url2)
   }
 
   postUser(user: Summoner){

@@ -36,7 +36,7 @@ app.post("/summoners", function(request, response){
 
             if(res != null){
 
-                SummonerModel.updateOne({accountId : request.body.accountId}, {nReported: res.nReported + 1}, function(err, resu){
+                SummonerModel.updateOne({accountId : request.body.accountId}, {name: request.body.name, nReported: res.nReported + 1}, function(err, resu){
 
                     if(err){
                         console.log(err);
@@ -67,6 +67,18 @@ app.post("/summoners", function(request, response){
     })
 
     
+})
+
+app.get("/summoners", function(request, response){
+
+    SummonerModel.find(function(err, res){
+
+        if (err){
+            console.log(err);
+        }else {
+            response.send(res)
+        }
+    }).sort({nReported: "desc"}).limit(50)
 })
 
 

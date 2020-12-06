@@ -12,10 +12,12 @@ export class HomeComponent implements OnInit {
 
   public link = ""
   public user: Summoner
+  public disabled: boolean = false
+  public users: Summoner []
   constructor(private riotService:RiotUserService) { }
 
 
-  getUsers(name: string){
+  getUser(name: string){
 
     this.riotService.getUser(name).subscribe((data:any)=>{
       console.log(data);
@@ -30,17 +32,24 @@ export class HomeComponent implements OnInit {
     })
   }
 
+
   postUser(){
 
     this.riotService.postUser(this.user).subscribe((data)=>{
 
       console.log(data);
+      this.disabled = true
       
     })
   }
 
   
   ngOnInit(): void {
+    this.riotService.getUsers().subscribe((data: Summoner[]) =>{
+
+      this.users = data
+      
+    })
   }
 
 }

@@ -1,34 +1,50 @@
-<div class="row search">
-
-    <input type="search" id="" placeholder="Type the summoner's name" #name>
-    <select name="" id="">
-        <option value="">Europe West</option>
-        <option value="">Europe Nordic & East</option>
-        <option value="">LAN</option>
-        <option value="">Korea</option>
-        <option value="">Oceania</option>
-        <option value="">Russia</option>
-        <option value="">Japan</option>
-        <option value="">Brazil</option>
-        <option value="">Turkey</option>
-        <option value="">North America</option>
-        <option value="">LAS</option>
-    </select>
-
-    <a  (click)="getUsers(name.value)">Go</a>
-
-</div>
+<body>
+    
 
 
+    <div class="row search">
 
-<div class="row summoners" *ngIf="user!= null">
+        <input type="search" id="" placeholder="Type the summoner's name" #name>
+        <select name="" id="">
+            <option value="euw">Europe West</option>
+            <!-- <option value="">Europe Nordic & East</option>
+            <option value="">LAN</option>
+            <option value="">Korea</option>
+            <option value="oce">Oceania</option>
+            <option value="ru">Russia</option>
+            <option value="jp">Japan</option>
+            <option value="br">Brazil</option>
+            <option value="tr">Turkey</option>
+            <option value="na">North America</option>
+            <option value="las">LAS</option> -->
+        </select>
+    
+        <a id="go" (click)="getUser(name.value)">Go</a>
+    
+    </div>
+    
+    
+    
+    <div class="row summoners" *ngIf="user!= null">
+    
+        <img id="user" src="http://ddragon.leagueoflegends.com/cdn/6.3.1/img/profileicon/1.png" alt="">
+        <a >{{user.name}}</a>
+        <a >{{user.summonerLevel}}</a>
+        <a href="{{link}}">Summoner's GG.OP</a>
+        <a id="go" style="background-color: #DD163B;" (click)="postUser()" disabled>Report</a>
+    </div>
+    
+    
+    <div class="row" *ngFor="let summoner of users" >
 
-    <img id="user" src="http://ddragon.leagueoflegends.com/cdn/6.3.1/img/profileicon/1.png" alt="">
-    <a >{{user.name}}</a>
-    <a >{{user.summonerLevel}}</a>
-    <a href="{{link}}">Summoner's GG.OP</a>
-    <a style="background-color: #DD163B;" (click)="postUser()">Report</a>
-</div>
+        <p>{{summoner.name}} - Reported {{summoner.nReported}} times</p>
+    
+        
+    </div>
 
+    <div class="row" style="padding: 2vw;">
+
+    </div>
+</body>
 
 
