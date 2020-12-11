@@ -81,5 +81,17 @@ app.get("/summoners", function(request, response){
     }).sort({nReported: "desc"}).limit(50)
 })
 
+app.post("/summoners/lobby", function(req, response){
+
+    SummonerModel.find({name: [req.body.s1, req.body.s2, req.body.s3, req.body.s4, req.body.s5] }, function(err, res){
+
+        if(err){
+            console.error("Error buscando usuarios ",err);
+        } else {
+            response.send(res)
+        }
+    })
+})
+
 
 app.listen(3000)

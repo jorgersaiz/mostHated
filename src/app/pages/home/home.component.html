@@ -33,6 +33,17 @@
         <a href="{{link}}">Summoner's GG.OP</a>
         <a id="go" style="background-color: #DD163B;" (click)="postUser()" disabled>Report</a>
     </div>
+
+    <div *ngIf="riotUsers!= null" style="margin-bottom: 2vw;">
+
+        <div class="row" *ngFor="let riotUser of riotUsers" >
+
+            <p>{{riotUser.name}} - Reported {{riotUser.nReported}} times</p>
+
+        </div>
+    
+        
+    </div>
     
     
     <div class="row" *ngFor="let summoner of users" >

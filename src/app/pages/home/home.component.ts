@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Summoner } from 'src/app/models/summoner';
 import { RiotUserService } from 'src/app/shared/riot-user.service';
+import { UserService } from 'src/app/shared/user.service';
 
 
 @Component({
@@ -12,30 +13,59 @@ export class HomeComponent implements OnInit {
 
   public link = ""
   public user: Summoner
+  public riotUsers: Summoner []
   public disabled: boolean = false
   public users: Summoner []
-  constructor(private riotService:RiotUserService) { }
+  constructor(private riotService:RiotUserService, private userService: UserService) { }
 
 
   getUser(name: string){
 
-    this.riotService.getUser(name).subscribe((data:any)=>{
-      console.log(data);
-      this.link = "https://euw.op.gg/summoner/userName="
-      this.user = data
+    if(name.length < 40){
 
-      
-      data.name.replace(" ", "+")
-      this.link += data.name      
-      this.user.nReported = 1
-      
-    })
+      this.riotService.getUser(name).subscribe((data:any)=>{
+        console.log(data);
+        this.link = "https://euw.op.gg/summoner/userName="
+        this.user = data
+  
+        
+        data.name.replace(" ", "+")
+        this.link += data.name      
+        this.user.nReported = 1
+        
+      })
+
+    } else {
+
+      let names = name.split(/ joined the lobby/g);
+
+      names.pop()
+
+      for(let i = 0; i < names.length; i++){
+
+        if(names[i][0] == " "){
+          names[i] = names[i].slice(1)
+        }
+      }
+
+      console.log(names);
+
+      let json = {s1:names[0], s2:names[1], s3:names[2], s4:names[3], s5:names[4]}
+
+      this.userService.getUserLobby(json).subscribe((data:any) =>{
+
+        this.riotUsers = data
+
+        console.log(this.riotUsers);
+        
+      })
+    }
   }
 
 
   postUser(){
 
-    this.riotService.postUser(this.user).subscribe((data)=>{
+    this.userService.postUser(this.user).subscribe((data)=>{
 
       console.log(data);
       this.disabled = true
@@ -45,7 +75,7 @@ export class HomeComponent implements OnInit {
 
   
   ngOnInit(): void {
-    this.riotService.getUsers().subscribe((data: Summoner[]) =>{
+    this.userService.getUserList().subscribe((data: Summoner[]) =>{
 
       this.users = data
       
