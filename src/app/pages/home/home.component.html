@@ -1,5 +1,61 @@
 <body>
     
+    <!-- <div class="row">
+
+        <div id="leyenda" class="column">
+
+            <div class="row">
+    
+                <h1 style="color: white;">RULES</h1>
+    
+            </div>
+    
+            <div class="row icons">
+                <h2>Run! Run! And never look back.</h2>
+                <i id="skull" class="fas fa-skull-crossbones"></i>
+    
+            </div>
+    
+            <div class="row icons impar" >
+                <h2>You should probably run!</h2>
+                <i id="biohazard" class="fa fa-biohazard"></i>
+    
+            </div>
+    
+            <div class="row icons">
+                <h2>It's your choice to stay...</h2>
+                <i id="warning" class="fa fa-exclamation-triangle"></i>
+    
+            </div>
+    
+            <div class="row icons impar">
+                <h2>It'll probably be fine.</h2>
+                <i id="face" class="fas fa-meh-rolling-eyes"></i>
+    
+            </div>
+    
+            <div class="row icons">
+                <h2>Totally fine, go ahead.</h2>
+                <i id="check" class="fa fa-check"></i>
+    
+            </div>
+    
+        </div>
+
+        <div class="column">
+
+            <h1 style="color: white;">Top 10 most hated</h1>
+            <div class="row" *ngFor="let summoner of users" >
+
+                <p>{{summoner.name}} - Reported {{summoner.nReported}} times</p>
+            
+                
+            </div>
+            
+        </div>
+
+
+    </div> -->
 
 
     <div class="row search">
@@ -31,25 +87,36 @@
         <a >{{user.name}}</a>
         <a >{{user.summonerLevel}}</a>
         <a href="{{link}}">Summoner's GG.OP</a>
-        <a id="go" style="background-color: #DD163B;" (click)="postUser()" disabled>Report</a>
+        <a id="go2" style="background-color: #DD163B;" (click)="postUser()">Report</a>
     </div>
 
-    <div *ngIf="riotUsers!= null" style="margin-bottom: 2vw;">
+    <div class="column" *ngIf="riotUsers!= null">
 
-        <div class="row" *ngFor="let riotUser of riotUsers" >
+        <h1>Your Lobby</h1>
 
-            <p>{{riotUser.name}} - Reported {{riotUser.nReported}} times</p>
+        <div  style="margin-bottom: 2vw;">
 
-        </div>
+            <div class="row" *ngFor="let riotUser of riotUsers" >
     
+                <p>{{riotUser.name}} - Reported {{riotUser.nReported}} times</p>
+    
+            </div>
         
+            
+        </div>
+
     </div>
     
     
-    <div class="row" *ngFor="let summoner of users" >
+    <div class="column" *ngIf="users!= null">
 
-        <p>{{summoner.name}} - Reported {{summoner.nReported}} times</p>
-    
+        <h1 style="color: white;">Top 10 most hated</h1>
+        <div class="row" *ngFor="let summoner of users; let even = even" >
+
+            <p [ngClass]="{'impar': even}">{{summoner.name}} - Reported {{summoner.nReported}} times</p>
+        
+            
+        </div>
         
     </div>
 

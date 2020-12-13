@@ -78,7 +78,7 @@ app.get("/summoners", function(request, response){
         }else {
             response.send(res)
         }
-    }).sort({nReported: "desc"}).limit(50)
+    }).sort({nReported: "desc"}).limit(10)
 })
 
 app.post("/summoners/lobby", function(req, response){

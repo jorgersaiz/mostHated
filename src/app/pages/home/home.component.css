@@ -1,6 +1,7 @@
 body{
 
     background-color: #111318;
+    background-image: url("https://fondosmil.com/fondo/5046.jpg");
     margin: -8px;
     margin-bottom: none;
     margin-top: none;
@@ -9,26 +10,33 @@ body{
 
 .search{
 
-    background-color: #111318;
+    /* background-color: #111318; */
     /* margin-right: -8px;
     margin-left: -8px; */
 
-    padding-top: 10vw;
-    padding-bottom: 5vw;
+    padding-top: 5vw;
+    padding-bottom: 2vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .summoners{
 
-    background-color: #111318;
-    padding: 3vw;
+    /* background-color: #111318; */
+    padding: 2vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 
 }
 
+.even{
+    background-color: #111318;
+}
+
 #go{
     cursor: pointer;
+    padding: 1.1vw;
+    font-size: 1.5vw;
+
 }
 
 #go:hover{
@@ -71,11 +79,21 @@ select{
     
 }
 
+#go2{
+    cursor: pointer;
+}
+
+#go2:hover{
+
+    color: white;
+    background-color: #44464c;
+}
+
 a{
 
-    padding: 1.1vw;
+    padding: 1vw;
     background-color: #272931;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     font-weight: bold;
     color: rgb(184, 174, 174);
     transition: 0.5s;
@@ -104,16 +122,68 @@ input:hover, input[type=search]:focus, select:hover{
 .row p{
 
     background-color: #272931;
-    font-size: 1.2vw;
+    font-size: 1vw;
     font-weight: bold;
-    padding: 1.2vw;
+    padding: 0.5vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(227, 229, 241);
-    border: inset;
+    /* border: inset;
     border-width: 0.5px;
-    border-color: rgb(223, 185, 89);
-    min-width: 25vw;
+    border-color: rgb(223, 185, 89); */
+    min-width: 20vw;
     margin: -1px;
 
 }
 
+.row h2{
+
+    color: white;
+    font-size: 1vw;
+}
+
+#skull{
+
+    color: rgb(24, 22, 22);
+}
+
+#biohazard{
+
+    color: rgb(187, 42, 42);
+
+}
+
+#warning{
+    color: rgb(255, 202, 29);
+}
+
+#face{
+    color: rgb(47, 94, 247);
+}
+
+#check{
+    color: rgb(0, 141, 0);
+}
+
+.icons{
+    width: 18vw;
+    height: 2vw;
+    background-color: #383a46;
+    /* border: 1px inset rgb(247, 197, 71); */
+
+
+}
+
+i{
+    font-size: 1.3vw;
+    /* margin-left: 7vw; */
+}
+
+#leyenda{
+
+    padding-top: 2vw;
+}
+
+.impar{
+
+    background-color: #3e404d;
+}

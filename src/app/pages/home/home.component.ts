@@ -21,10 +21,10 @@ export class HomeComponent implements OnInit {
 
   getUser(name: string){
 
-    if(name.length < 40){
+    if(name.length < 17){
 
       this.riotService.getUser(name).subscribe((data:any)=>{
-        console.log(data);
+        
         this.link = "https://euw.op.gg/summoner/userName="
         this.user = data
   
@@ -48,15 +48,17 @@ export class HomeComponent implements OnInit {
         }
       }
 
-      console.log(names);
+      
 
       let json = {s1:names[0], s2:names[1], s3:names[2], s4:names[3], s5:names[4]}
 
       this.userService.getUserLobby(json).subscribe((data:any) =>{
 
         this.riotUsers = data
+        this.users = null
 
-        console.log(this.riotUsers);
+
+        
         
       })
     }
@@ -68,18 +70,24 @@ export class HomeComponent implements OnInit {
     this.userService.postUser(this.user).subscribe((data)=>{
 
       console.log(data);
-      this.disabled = true
+      this.list()
+
+      
+    })
+  }
+
+  list(){
+
+    this.userService.getUserList().subscribe((data: Summoner[]) =>{
+
+      this.users = data
       
     })
   }
 
   
   ngOnInit(): void {
-    this.userService.getUserList().subscribe((data: Summoner[]) =>{
-
-      this.users = data
-      
-    })
+    this.list()
   }
 
 }
