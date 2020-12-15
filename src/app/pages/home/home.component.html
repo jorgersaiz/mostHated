@@ -83,14 +83,14 @@
     
     <div class="row summoners" *ngIf="user!= null">
     
-        <img id="user" src="http://ddragon.leagueoflegends.com/cdn/6.3.1/img/profileicon/1.png" alt="">
+        <!-- <img id="user" src="http://ddragon.leagueoflegends.com/cdn/6.3.1/img/profileicon/1.png" alt=""> -->
         <a >{{user.name}}</a>
         <a >{{user.summonerLevel}}</a>
         <a href="{{link}}">Summoner's GG.OP</a>
-        <a id="go2" style="background-color: #DD163B;" (click)="postUser()">Report</a>
+        <button type="button" id="go2" (click)="postUser()" [disabled]="disabled">Report</button>
     </div>
 
-    <div class="column" *ngIf="riotUsers!= null">
+    <div class="column" *ngIf="riotUsers!= null" style="margin-bottom: 2vw;">
 
         <h1>Your Lobby</h1>
 
@@ -111,9 +111,9 @@
     <div class="column" *ngIf="users!= null">
 
         <h1 style="color: white;">Top 10 most hated</h1>
-        <div class="row" *ngFor="let summoner of users; let even = even" >
+        <div class="row" *ngFor="let summoner of users">
 
-            <p [ngClass]="{'impar': even}">{{summoner.name}} - Reported {{summoner.nReported}} times</p>
+            <p>{{summoner.name}} - Reported {{summoner.nReported}} times</p>
         
             
         </div>

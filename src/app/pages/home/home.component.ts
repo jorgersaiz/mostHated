@@ -11,19 +11,21 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class HomeComponent implements OnInit {
 
+  public disabled: boolean = false
   public link = ""
   public user: Summoner
   public riotUsers: Summoner []
-  public disabled: boolean = false
   public users: Summoner []
   constructor(private riotService:RiotUserService, private userService: UserService) { }
 
 
   getUser(name: string){
 
+    this.disabled = false
+
     if(name.length < 17){
 
-      this.riotService.getUser(name).subscribe((data:any)=>{
+      this.riotService.getUser(name).subscribe((data:Summoner)=>{
         
         this.link = "https://euw.op.gg/summoner/userName="
         this.user = data
@@ -52,9 +54,10 @@ export class HomeComponent implements OnInit {
 
       let json = {s1:names[0], s2:names[1], s3:names[2], s4:names[3], s5:names[4]}
 
-      this.userService.getUserLobby(json).subscribe((data:any) =>{
+      this.userService.getUserLobby(json).subscribe((data:Summoner []) =>{
 
         this.riotUsers = data
+        
         this.users = null
 
 
@@ -67,11 +70,12 @@ export class HomeComponent implements OnInit {
 
   postUser(){
 
+    this.disabled = true
+
     this.userService.postUser(this.user).subscribe((data)=>{
+      
 
       console.log(data);
-      this.list()
-
       
     })
   }

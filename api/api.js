@@ -90,7 +90,7 @@ app.post("/summoners/lobby", function(req, response){
         } else {
             response.send(res)
         }
-    })
+    }).sort({nReported: "desc"})
 })
 
 
