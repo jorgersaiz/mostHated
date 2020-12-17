@@ -9,7 +9,7 @@ import { Summoner } from '../models/summoner';
 export class RiotUserService {
 
   private url = "/lol/summoner/v4/summoners/by-name/"
-  private authToken = "?api_key=RGAPI-8484df30-4cca-4139-a748-18617d01e109"
+  private authToken = "?api_key=RGAPI-d1026fef-3651-4065-aea1-8adde563e9f4"
   constructor(private http: HttpClient) { }
 
   getUser(name: string){
