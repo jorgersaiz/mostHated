@@ -84,6 +84,8 @@ export class HomeComponent implements OnInit {
 
     this.userService.getUserList().subscribe((data: Summoner[]) =>{
 
+      console.log("Hola");
+      
       this.users = data
       
     })
