@@ -7,8 +7,8 @@ import { Summoner } from '../models/summoner';
 })
 export class UserService {
 
-  private url = "http://localhost:3000/summoners"
-  private url2 = "http://localhost:3000/summoners/lobby"
+  private url = "https://most-hated-api.herokuapp.com/summoners"
+  private url2 = "https://most-hated-api.herokuapp.com/summoners/lobby"
 
   constructor(private http: HttpClient) { }
 
