@@ -8,13 +8,12 @@ import { Summoner } from '../models/summoner';
 export class UserService {
 
   private url = "https://most-hated-api.herokuapp.com/summoners"
-  private url2 = "https://most-hated-api.herokuapp.com/summoners/lobby"
 
   constructor(private http: HttpClient) { }
 
   getUserLobby(names){
 
-    return this.http.post(this.url2, names)
+    return this.http.post(`${this.url}/lobby`, names)
 
   }
   getUserList(){
