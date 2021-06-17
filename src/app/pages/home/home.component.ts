@@ -18,14 +18,15 @@ export class HomeComponent implements OnInit {
   public users: Summoner []
   constructor(private riotService:RiotUserService, private userService: UserService) { }
 
+  // Muestra a un usuario de la api de Riot o al lobby de la base de datos
 
-  getUser(name: string){
+  getUser(name: string, loc: string){
 
     this.disabled = false
 
     if(name.length < 17){
 
-      this.riotService.getUser(name).subscribe((data:Summoner)=>{
+      this.riotService.getUser(name, loc).subscribe((data:Summoner)=>{
         
         this.link = "https://euw.op.gg/summoner/userName="
         this.user = data
@@ -50,8 +51,6 @@ export class HomeComponent implements OnInit {
         }
       }
 
-      
-
       let json = {s1:names[0], s2:names[1], s3:names[2], s4:names[3], s5:names[4]}
 
       this.userService.getUserLobby(json).subscribe((data:Summoner []) =>{
@@ -59,26 +58,20 @@ export class HomeComponent implements OnInit {
         this.riotUsers = data
         
         this.users = null
-
-
-        
-        
       })
     }
   }
 
+  // Reporta a un nuevo usuario
 
   postUser(){
 
     this.disabled = true
 
-    this.userService.postUser(this.user).subscribe((data)=>{
-      
-
-      console.log(data);
-      
-    })
+    this.userService.postUser(this.user).subscribe()
   }
+
+  // Lista de los 10 usuarios más reportados
 
   list(){
 
@@ -89,7 +82,6 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  
   ngOnInit(): void {
     this.list()
   }

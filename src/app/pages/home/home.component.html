@@ -61,21 +61,35 @@
     <div class="row search">
 
         <input type="search" id="" placeholder="Type the summoner's name" #name>
-        <select name="" id="">
-            <option value="euw">Europe West</option>
-            <!-- <option value="">Europe Nordic & East</option>
-            <option value="">LAN</option>
-            <option value="">Korea</option>
-            <option value="oce">Oceania</option>
-            <option value="ru">Russia</option>
-            <option value="jp">Japan</option>
-            <option value="br">Brazil</option>
-            <option value="tr">Turkey</option>
-            <option value="na">North America</option>
-            <option value="las">LAS</option> -->
+        <select name="" id="" #loc>
+            <option value="euw1">Europe WestOK</option>
+            <option value="eun1">Europe Nordic & East</option>
+            <option value="la2">LANOK</option>
+            <option value="kr">KoreaOK</option>
+            <option value="oc1">OceaniaOK</option>
+            <option value="ru">RussiaOK</option>
+            <option value="jp1">JapanOK</option>
+            <option value="br1">BrazilOK</option>
+            <option value="tr1">TurkeyOK</option>
+            <option value="na1">North AmericaOK</option>
+            <option value="la1">LASOK</option>
         </select>
+
+        <!-- 
+        euw1 = euw
+        eun1 = eune
+        la2 = lan
+        kr = ""
+        oc1 = oce
+        ru = ru
+        jp1 = jp
+        br1 = br
+        tr1 = tr
+        na1 = na
+        la1 = las
+    -->
     
-        <a id="go" (click)="getUser(name.value)">Go</a>
+        <a id="go" (click)="getUser(name.value, loc.value)">Go</a>
     
     </div>
     
@@ -86,7 +100,7 @@
         <!-- <img id="user" src="http://ddragon.leagueoflegends.com/cdn/6.3.1/img/profileicon/1.png" alt=""> -->
         <a >{{user.name}}</a>
         <a >{{user.summonerLevel}}</a>
-        <a href="{{link}}">Summoner's GG.OP</a>
+        <a href="{{link}}">Summoner's OP.GG</a>
         <button type="button" id="go2" (click)="postUser()" [disabled]="disabled">Report</button>
     </div>
 
